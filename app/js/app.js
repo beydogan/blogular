@@ -1,7 +1,7 @@
 'use strict';
 
 // Declare app level module which depends on filters, and services
-angular.module('blogularApp', [
+var blogular = angular.module('blogularApp', [
   'ngRoute',
   'blogularApp.filters',
   'blogularApp.services',
@@ -16,3 +16,7 @@ config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/posts/:postId/edit', {templateUrl: 'partials/post-new.html', controller: 'PostEditCtrl'});
   $routeProvider.otherwise({redirectTo: '/'});
 }]);
+
+blogular.run(function(PostService) { // instance-injector
+    PostService.init();
+  });
