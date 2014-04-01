@@ -3,15 +3,20 @@
 /* Controllers */
 
 angular.module('blogularApp.controllers', [])
-  .controller('HomeCtrl', ['$scope', '$http', function($scope, $http) {
-  	$http.get('/api/posts.json').success(function(data, status) {
-    	$scope.posts = data;
-  	});
+  .controller('HomeCtrl', ['$scope', '$http', 'PostService', function($scope, $http, PostService) {
+	$scope.posts = PostService.list();
 
   }])
-  .controller('PostDetailCtrl',['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
-    $http.get('/api/posts/' + $routeParams.postId + '.json').success(function(data) {
-      $scope.post = data;
-    });
+  .controller('PostDetailCtrl',['$scope', '$http', '$routeParams', 'PostService', function($scope, $http, $routeParams, PostService) {
+      $scope.post = PostService.get($routeParams.postId);
+    console.log("jsfadjfjsdaj")
 
+  }])
+  .controller('PostNewCtrl',['$scope', '$http', '$routeParams', 'PostService', function($scope, $http, $routeParams, PostService) {
+
+	  $scope.save = function() {
+	    Restangular.all('projects').post($scope.project).then(function(project) {
+	      $location.path('/list');
+	    });
+	  }
   }]);
