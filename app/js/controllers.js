@@ -9,6 +9,9 @@ angular.module('blogularApp.controllers', [])
   	});
 
   }])
-  .controller('MyCtrl2', [function() {
+  .controller('PostDetailCtrl',['$scope', '$http', '$routeParams', function($scope, $http, $routeParams) {
+    $http.get('/api/posts/' + $routeParams.postId + '.json').success(function(data) {
+      $scope.post = data;
+    });
 
   }]);
