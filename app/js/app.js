@@ -6,7 +6,8 @@ angular.module('blogularApp', [
   'blogularApp.filters',
   'blogularApp.services',
   'blogularApp.directives',
-  'blogularApp.controllers'
+  'blogularApp.controllers',
+  'LocalStorageModule'
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'});
