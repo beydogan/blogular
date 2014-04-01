@@ -23,7 +23,7 @@ angular.module('blogularApp.services', []).
 	            posts.push(post);
 	            return post.id
 	        } else { //update existing
-	            for (i in posts) {
+	            for (var i in posts) {
 	                if (posts[i].id == post.id) {
 	                    posts[i] = post;
 	                    return post.id
