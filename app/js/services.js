@@ -32,7 +32,7 @@ angular.module('blogularApp.services', []).
 			}
 		}
 
-		// Save data to local storage
+		// Save data to local storages
 		this.persistLocal = function(){
 			localStorageService.set("posts", posts)
 			localStorageService.set("last_id", last_id)
@@ -67,7 +67,7 @@ angular.module('blogularApp.services', []).
 	    }
 	     
     	// Deletes post by given id
-	    this.delete = function (id) {
+	    this.destroy = function (id) {
 	        for (var i in posts) {
 	            if (posts[i].id == id) {
 	                posts.splice(i, 1);
