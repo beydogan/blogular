@@ -12,11 +12,10 @@ angular.module('blogularApp.controllers', [])
     console.log("jsfadjfjsdaj")
 
   }])
-  .controller('PostNewCtrl',['$scope', '$http', '$routeParams', 'PostService', function($scope, $http, $routeParams, PostService) {
+  .controller('PostNewCtrl',['$scope', '$http', '$location', '$routeParams','PostService', function($scope, $http, $location, $routeParams, PostService) {
 
 	  $scope.save = function() {
-	    Restangular.all('projects').post($scope.project).then(function(project) {
-	      $location.path('/list');
-	    });
+	    var postId = PostService.save($scope.post);
+	     $location.path('/posts/' + postId);
 	  }
   }]);

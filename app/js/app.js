@@ -10,6 +10,7 @@ angular.module('blogularApp', [
 ]).
 config(['$routeProvider', function($routeProvider) {
   $routeProvider.when('/', {templateUrl: 'partials/home.html', controller: 'HomeCtrl'});
+  $routeProvider.when('/posts/new', {templateUrl: 'partials/post-new.html', controller: 'PostNewCtrl'});
   $routeProvider.when('/posts/:postId', {templateUrl: 'partials/post-detail.html', controller: 'PostDetailCtrl'});
   $routeProvider.otherwise({redirectTo: '/'});
 }]);

@@ -1,0 +1,32 @@
+ <div class="row">
+    <div class="col-lg-5">
+
+          <form name="postForm" class="form-horizontal">
+              <div class="form-group" ng-class="{error: postForm.title.$invalid}">
+                <label class="control-label col-sm-2">Title</label>
+                <div class="col-sm-10">
+                  <input type="text" name="title" class="form-control" ng-model="post.title" required>
+                  <span ng-show="postForm.title.$error.required" class="help-inline">
+                      Required</span>
+                </div>
+              </div>
+            
+              <div class="form-group" ng-class="{error: postForm.text.$invalid}">
+                <label class="control-label col-sm-2">Text</label>
+                <div class="col-sm-10">
+                  <textarea name="text" class="form-control" ng-model="post.text" required></textarea>
+                  <span ng-show="postForm.text.$error.required" class="help-inline">
+                      Required</span>
+                </div>
+              </div>
+              
+            
+              <br>
+              <a href="#/" class="btn">Cancel</a>
+              <button ng-click="save()" ng-disabled="isClean() || postForm.$invalid"
+                      class="btn btn-primary">Save</button>
+            </form>
+
+
+    </div>
+</div>
