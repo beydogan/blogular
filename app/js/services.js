@@ -19,16 +19,17 @@ angular.module('blogularApp.services', []).
 		// Creates or updates post
 	    this.save = function (post) {
 	        if (post.id == null) { //create new one
-	            post.id = uid++;
+	            post.id = last_id++;
 	            posts.push(post);
+	            return post.id
 	        } else { //update existing
 	            for (i in posts) {
-	                if (posts[i].id == contact.id) {
-	                    posts[i] = contact;
+	                if (posts[i].id == post.id) {
+	                    posts[i] = post;
+	                    return post.id
 	                }
 	            }
 	        }
-	 
 	    }
 
 		// Returns post by given id
